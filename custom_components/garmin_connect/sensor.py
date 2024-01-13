@@ -48,7 +48,8 @@ async def async_setup_entry(
     coordinator: DataUpdateCoordinator = hass.data[GARMIN_DOMAIN][entry.entry_id][
         DATA_COORDINATOR
     ]
-    unique_id = entry.data[CONF_ID]
+#    unique_id = entry.data[CONF_ID]
+    unique_id = f"Garmin_{entry.data[CONF_ID]}"
 
     entities = []
     for (
