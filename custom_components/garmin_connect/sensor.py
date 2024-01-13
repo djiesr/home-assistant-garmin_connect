@@ -49,7 +49,7 @@ async def async_setup_entry(
         DATA_COORDINATOR
     ]
 #    unique_id = entry.data[CONF_ID]
-    unique_id = f"Garmin_{entry.data[CONF_ID]}"
+    unique_id = f"{coordinator}_{entry.data[CONF_ID]}"
 
     entities = []
     for (
