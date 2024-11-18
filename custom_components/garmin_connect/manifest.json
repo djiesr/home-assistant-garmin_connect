@@ -1,7 +1,7 @@
 {
-  "domain": "garmin_connect",
-  "name": "Garmin Connect",
-  "codeowners": ["@cyberjunky"],
+  "domain": "garmin_connect patch",
+  "name": "Garmin Connect Patch",
+  "codeowners": ["@djiesr"],
   "config_flow": true,
   "dependencies": [],
   "documentation": "https://github.com/cyberjunky/home-assistant-garmin_connect",
