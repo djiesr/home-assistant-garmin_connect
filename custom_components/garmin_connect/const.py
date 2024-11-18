@@ -407,7 +407,39 @@ GARMIN_ENTITY_LIST = {
         SensorStateClass.TOTAL,
         SensorStateClass.MEASUREMENT,
         True,
-    ]
+    ],
+    "deepSleepSeconds": [
+        "Deep Sleep Duration",
+        UnitOfTime.MINUTES,
+        "mdi:sleep",
+        SensorDeviceClass.DURATION,
+        SensorStateClass.TOTAL,
+        True,
+    ],
+    "lightSleepSeconds": [
+        "Light Sleep Duration",
+        UnitOfTime.MINUTES,
+        "mdi:sleep",
+        SensorDeviceClass.DURATION,
+        SensorStateClass.TOTAL,
+        True,
+    ],
+    "remSleepSeconds": [
+        "REM Sleep Duration",
+        UnitOfTime.MINUTES,
+        "mdi:sleep",
+        SensorDeviceClass.DURATION,
+        SensorStateClass.TOTAL,
+        True,
+    ],
+    "awakeSleepSeconds": [
+        "Awake Sleep Duration",
+        UnitOfTime.MINUTES,
+        "mdi:sleep",
+        SensorDeviceClass.DURATION,
+        SensorStateClass.TOTAL,
+        True,
+    ],
 
 }
 
