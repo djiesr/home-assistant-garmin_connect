@@ -18,6 +18,7 @@ from homeassistant.const import (
     UnitOfLength,
     ATTR_ENTITY_ID,
     CONF_ID,
+    CONF_USERNAME,
 )
 from homeassistant.const import ATTR_ATTRIBUTION, CONF_ID
 from homeassistant.core import HomeAssistant
@@ -48,7 +49,8 @@ async def async_setup_entry(
     coordinator: DataUpdateCoordinator = hass.data[GARMIN_DOMAIN][entry.entry_id][
         DATA_COORDINATOR
     ]
-    unique_id = entry.data[CONF_ID]
+    username = entry.data[CONF_USERNAME].split('@')[0]
+    unique_id = f"garmin_{username}"
 
     entities = []
     for (
