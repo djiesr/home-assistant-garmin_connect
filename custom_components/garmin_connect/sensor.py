@@ -13,6 +13,7 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorStateClass,
 )
+from homeassistant.helpers import config_validation as cv
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     UnitOfLength,
@@ -106,17 +107,15 @@ async def async_setup_entry(
         "add_body_composition", BODY_COMPOSITION_SERVICE_SCHEMA, coordinator.add_body_composition
     )
 
-ENTITY_SERVICE_SCHEMA = vol.Schema(
+ENTITY_SERVICE_SCHEMA = cv.make_entity_service_schema(
     {
-        vol.Required(ATTR_ENTITY_ID): str,
         vol.Required("activity_type"): str,
         vol.Required("setting"): str,
     }
 )
 
-BODY_COMPOSITION_SERVICE_SCHEMA = vol.Schema(
+BODY_COMPOSITION_SERVICE_SCHEMA = cv.make_entity_service_schema(
     {
-        vol.Required(ATTR_ENTITY_ID): str,
         vol.Optional("timestamp"): str,
         vol.Required("weight"): float,
         vol.Optional("percent_fat"): float,
