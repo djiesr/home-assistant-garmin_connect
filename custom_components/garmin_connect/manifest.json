@@ -1,5 +1,5 @@
 {
-  "domain": "garmin_connect",
+  "domain": "garmin_connect_patch",
   "name": "Garmin Connect Patch",
   "codeowners": ["@djiesr"],
   "config_flow": true,
