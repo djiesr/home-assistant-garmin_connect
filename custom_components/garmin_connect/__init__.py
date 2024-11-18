@@ -112,6 +112,7 @@ class GarminConnectDataUpdateCoordinator(DataUpdateCoordinator):
         activity_types = {}
         sleep_data = {}
         sleep_score = None
+        sleep_phases = {}
 
         try:
             summary = await self.hass.async_add_executor_job(
@@ -179,9 +180,20 @@ class GarminConnectDataUpdateCoordinator(DataUpdateCoordinator):
         except KeyError:
             _LOGGER.debug("Sleep score data is not available")
 
+        if "dailySleepDTO" in sleep_data:
+            daily_sleep = sleep_data["dailySleepDTO"]
+            sleep_phases = {
+                "deepSleepSeconds": daily_sleep.get("deepSleepSeconds", 0),
+                "lightSleepSeconds": daily_sleep.get("lightSleepSeconds", 0),
+                "remSleepSeconds": daily_sleep.get("remSleepSeconds", 0),
+                "awakeSleepSeconds": daily_sleep.get("awakeSleepSeconds", 0),
+            }
+
+        
         return {
             **summary,
             **body["totalAverage"],
+            **sleep_phases,
             "nextAlarm": alarms,
             "gear": gear,
             "gear_stats": gear_stats,
